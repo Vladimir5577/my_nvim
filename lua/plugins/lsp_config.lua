@@ -24,17 +24,28 @@ return {
 
     {
         "neovim/nvim-lspconfig",
+        dependencies = {
+          "hrsh7th/cmp-nvim-lsp",
+        },
         config = function()
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({})
             lspconfig.intelephense.setup({})
+
+            -- import cmp-nvim-lsp plugin
+		        local cmp_nvim_lsp = require("cmp_nvim_lsp")
+            -- used to enable autocompletion (assign to every lsp server config)
+		        local capabilities = cmp_nvim_lsp.default_capabilities()
+
             lspconfig.gopls.setup({
                 cmd = {"gopls"},
                 filetypes = { "go", "gomod", "gowork", "gotmpl" },
                 settings = {
-                    completeUnimported = true,
+                  gopls = {
+                      completeUnimported = true,
+                  },
                 },
-                
+                capabilities = capabilities,
             })
 
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
