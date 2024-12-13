@@ -41,11 +41,17 @@ return {
                 cmd = {"gopls"},
                 filetypes = { "go", "gomod", "gowork", "gotmpl" },
                 settings = {
-                  gopls = {
+                    gopls = {
                       completeUnimported = true,
+                    --   usePlaceholders = true,
+                      gofumpt = true,
+                      analyses = {
+                        unusedparams = true,
+                      },
+                    },
                   },
-                },
                 capabilities = capabilities,
+                -- on_attach = on_attach,
             })
 
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})

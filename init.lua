@@ -5,9 +5,8 @@ vim.cmd("set expandtab")
 vim.cmd("set smartindent")
 vim.cmd("set autoindent")
 
-
 require("config.lazy")
-vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', {})
 
+vim.cmd("colorscheme catppuccin")
 
 
