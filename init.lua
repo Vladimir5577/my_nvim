@@ -4,6 +4,7 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set expandtab")
 vim.cmd("set smartindent")
 vim.cmd("set autoindent")
+vim.cmd("set ignorecase")
 
 
 -- for file explorer
